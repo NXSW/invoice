@@ -1,4 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<h1>社員情報</h1>
+
+<table>
+<tbody>
+
+	<th>社員番号</th>
+	<th>名前</th>
+	<th>現場</th>
+	
+
+    
+    <tr>
+    	<td><%= @member.Company_number %></td>
+    	<td><%= @member.name %></td>
+    	<td><%= @member.workplace %></td>
+    </tr>
+
+
+</tbody>
+</table>
+
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>

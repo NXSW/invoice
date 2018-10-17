@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Members</h1>
+<h1>社員一覧</h1>
 
 <table>
   <thead>
@@ -10,9 +10,18 @@
   </thead>
 
   <tbody>
+    <th>ID</th>
+    <th>社員番号</th>
+    <th>名前</th>
+    <th>現場</th>
+
     <% @members.each do |member| %>
       <tr>
-        <td><%= link_to 'Show', member %></td>
+        <td><%= member.id %></td>
+        <td><%= member.Company_number %></td>
+        <td><%= link_to member.name , member %></td>
+        <td><%= member.workplace %></td>
+
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -22,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Member', new_member_path %>
+<%= link_to '社員追加', new_member_path %>
