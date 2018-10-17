@@ -41,6 +41,7 @@ class MembersController < ApplicationController
   # PATCH/PUT /members/1.json
   def update
     respond_to do |format|
+      params.require(:member).permit(:name)
       if @member.update(member_params)
         format.html { redirect_to @member, notice: 'Member was successfully updated.' }
         format.json { render :show, status: :ok, location: @member }
@@ -70,5 +71,11 @@ class MembersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
       params.fetch(:member, {})
+      params.require(:member).permit(
+        :name,
+        :Company_number,
+        :sex,
+        :workplace
+      )
     end
 end
