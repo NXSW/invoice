@@ -5,6 +5,7 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
+    # @members = members.where("name like ?"%" + fstr + "%"")
   end
 
   # GET /members/1
