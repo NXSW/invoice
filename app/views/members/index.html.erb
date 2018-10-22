@@ -2,12 +2,9 @@
 
 <h1>社員一覧</h1>
 
-<p>社員検索</p>
-
 <%= search_form_for @q do |f| %>
   <%= f.label '名前' %>
   <%= f.search_field :name_cont %>
-
   <%= f.label '現場' %>
   <%= f.search_field :workplace_cont %>
   <%= f.submit %>
@@ -16,23 +13,24 @@
 <table>
   <thead>
     <tr>
-        <th>ID</th>
+      　<th></th>
         <th>社員番号</th>
         <th>氏名</th>
         <th>現場</th>
         <th>単価</th>
+        <th></th>
         <th></th>
     </tr>
   </thead>
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.id %></td>
+        <td><%= check_box_tag 'member_ids[]', member.id, true, {} %></td>
         <td><%= member.Company_number %></td>
-        <td><%= link_to member.name , member %></td>
+        <td><%= link_to member.name, member %></td>
         <td><%= member.workplace %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to '編集', edit_member_path(member) %></td>
+        <td><%= button_to '削除', member, method: :delete, data: { confirm: '削除してもよろしいですか？' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,5 +38,7 @@
   </tfoot>
 </table>
 <br>
+
+
 
 <%= link_to '社員追加', new_member_path %>
