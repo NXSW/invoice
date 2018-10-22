@@ -4,8 +4,8 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
-    # @members = members.where("name like ?"%" + fstr + "%"")
+    @q = Member.ransack(params[:q])
+    @members = @q.result(distinct: true)
   end
 
   # GET /members/1

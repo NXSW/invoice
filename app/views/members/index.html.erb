@@ -2,18 +2,16 @@
 
 <h1>社員一覧</h1>
 
-<%= link_to '社員追加', new_member_path %>
-
-
 <p>社員検索</p>
 
- <form action="/members">
-　名前: <input type="text" name="name" >
-  現場: <input type="text" name="workplace">
-  <input type="submit" value="検索">
-</form>
+<%= search_form_for @q do |f| %>
+  <%= f.label '名前' %>
+  <%= f.search_field :name_cont %>
 
-
+  <%= f.label '現場' %>
+  <%= f.search_field :workplace_cont %>
+  <%= f.submit %>
+<% end %>
 
 <table>
   <thead>
@@ -39,17 +37,8 @@
     <% end %>
   </tbody>
   <tfoot>
-    <tr>
-        <th>ID</th>
-        <th>社員番号</th>
-        <th>名前</th>
-        <th>現場</th>
-        <th>単価</th>
-        <th></th>
-    </tr>
-</tfoot>
+  </tfoot>
 </table>
-
 <br>
 
 <%= link_to '社員追加', new_member_path %>
