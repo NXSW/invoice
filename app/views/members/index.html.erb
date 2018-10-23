@@ -18,7 +18,6 @@
   <thead>
     <tr>
       　<th></th>
-        <th>社員番号</th>
         <th>氏名</th>
         <th>現場</th>
         <th>単価(円)</th>
@@ -30,7 +29,6 @@
     <% @members.each do |member| %>
       <tr>
         <td><%= check_box_tag 'member_ids[]', member.id, true, {} %></td>
-        <td><%= member.Company_number %></td>
         <td><%= link_to member.name, member %></td>
         <td><%= member.workplace %></td>
         <td><%= member.cost %></td>
