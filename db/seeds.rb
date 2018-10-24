@@ -7,11 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if Member.count == 0
-  Member.create(
+  Member.create!(
     [
-    	{ name: '王', Company_number: '001', sex: '男', workplace: 'NEXT', cost: 300000, upper_standerd: 180, upper_standerd: 140 },
-    	{ name: '甲田', Company_number: '002', sex: '女', workplace: 'NEXT', cost: 200000, upper_standerd: 180, upper_standerd: 140 },
-    	{ name: '前森', Company_number: '003', sex: '男', workplace: 'NEXT', cost: 200000, upper_standerd: 180, upper_standerd: 140 }
+    	{ name: '王', sex: 0, work_place: '日立', cost: 300000, upper_standerd: 180, lower_standerd: 140, bill_to_id: 1 },
+    	{ name: '甲田', sex: 0, work_place: 'NEXT', cost: 20000, upper_standerd: 180, lower_standerd: 140, bill_to_id: 2 },
+    	{ name: '前森', sex: 0, work_place: 'NEXT', cost: 20000, upper_standerd: 180, lower_standerd: 140, bill_to_id: 3 }
+    ]
+  )
+  BillTo.create!(
+    [
+      { name: 'Zero' },
+      { name: 'レバテック' },
+      { name: 'レバテック' }
     ]
   )
 end

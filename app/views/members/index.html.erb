@@ -9,9 +9,9 @@
   </div>
   <div class="input-group mb-3">
     <%= f.label '現場', { class: 'input-group-text' } %>
-    <%= f.search_field :workplace_cont, { class: 'form-control' } %>
+    <%= f.search_field :work_place_cont, { class: 'form-control' } %>
   </div>
-  <%= f.submit '検索'%>
+  <%= f.submit '検索', { class: "btn btn-primary active" } %>
 <% end %>
 
 <table class="table">
@@ -30,10 +30,10 @@
       <tr>
         <td><%= check_box_tag 'member_ids[]', member.id, true, {} %></td>
         <td><%= link_to member.name, member %></td>
-        <td><%= member.workplace %></td>
+        <td><%= member.work_place %></td>
         <td><%= member.cost %></td>
-        <td><%= button_to '編集', edit_member_path(member) %></td>
-        <td><%= button_to '削除', member, method: :delete, data: { confirm: '削除してもよろしいですか？' } %></td>
+        <td><%= button_to '編集', edit_member_path(member), { class: "btn btn-link" } %></td>
+        <td><%= button_to '削除', member, method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "btn btn-link" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,6 +42,4 @@
 </table>
 <br>
 
-
-
-<%= link_to '社員追加', new_member_path %>
+<%= link_to '社員追加', new_member_path, { class: "btn btn-primary active" } %>
