@@ -11,8 +11,8 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :address_2
       t.string :postno_1
       t.string :postno_2
-      t.string :course_1
-      t.string :course_2
+      t.string :bank_account_1
+      t.string :bank_account_2
       t.timestamps
     end
   end

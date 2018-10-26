@@ -74,9 +74,9 @@ class MembersController < ApplicationController
       params.fetch(:member, {})
       params.require(:member).permit(
         :name,
-        :Company_number,
+        :company_id,
         :sex,
-        :workplace
+        :work_place
       )
     end
 end

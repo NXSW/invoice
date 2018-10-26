@@ -4,12 +4,12 @@
 
 <%= search_form_for @q do |f| %>
   <div class="input-group mb-3">
-    <span class="input-group-text" id="">名前</span>
+    <span class="input-group-text" id="">名　前</span>
     <%= f.search_field :name_cont, { class: 'form-control' } %>
   </div>
   <div class="input-group mb-3">
-    <%= f.label '現場', { class: 'input-group-text' } %>
-    <%= f.search_field :work_place_cont, { class: 'form-control' } %>
+    <%= f.label '請求先', { class: 'input-group-text' } %>
+    <%= f.collection_select(:bill_to_id_eq, BillTo.all, :id, :name, :include_blank => '選択してください') %>
   </div>
   <%= f.submit '検索', { class: "btn btn-primary active" } %>
 <% end %>
@@ -17,12 +17,12 @@
 <table class="table">
   <thead>
     <tr>
-      　<th></th>
-        <th>氏名</th>
-        <th>現場</th>
-        <th>単価(円)</th>
-        <th></th>
-        <th></th>
+    　<th></th>
+      <th>氏名</th>
+      <th>請求先</th>
+      <th>単価(円)</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -30,10 +30,10 @@
       <tr>
         <td><%= check_box_tag 'member_ids[]', member.id, true, {} %></td>
         <td><%= link_to member.name, member %></td>
-        <td><%= member.work_place %></td>
-        <td><%= member.cost %></td>
-        <td><%= button_to '編集', edit_member_path(member), { class: "btn btn-link" } %></td>
-        <td><%= button_to '削除', member, method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "btn btn-link" %></td>
+        <td><%= link_to member.bill_to.name, member %></td>
+        <td><%= member.unit_price %></td>
+        <td><%= link_to '編集', edit_member_path(member), { class: "btn btn-link" } %></td>
+        <td><%= link_to '削除', member, method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "btn btn-link" %></td>
       </tr>
     <% end %>
   </tbody>
