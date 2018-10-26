@@ -1,3 +1,3 @@
 class BillTo < ApplicationRecord
-  has_one :member
+  has_many :members
 end
