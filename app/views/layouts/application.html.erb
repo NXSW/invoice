@@ -10,39 +10,26 @@
   </head>
 
   <body>
-    <header class="sticky-top">
 
-      <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container">
-            <a class="navbar-brand " href="/">NEXT</a>
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  MENU
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">社員一覧</a>
-                  <a class="dropdown-item" href="#">請求先一覧</a>
-                </div>
-              </li>
-            </ul>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
-          </div>
-        </nav>
-      </div>
-    </header>
 
-    <div class="container" style="overflow:auto; height:auto;">
+    <% if user_signed_in? %>
+      <%= render 'layouts/header' %>
+    <% else %>
+      <%= render 'devise/shared/header' %>
+    <% end %>
+
+    
+
+    <div class="container mb-5" style="overflow:auto; height:1000px;">
       <%= yield %>
     </div>
 
-    <footer class="fixed-bottom">
-    <small>Copyright (c) ネクスト株式会社 All Rights Reserved.</small>
-  </footer>
 
+     <% if user_signed_in? %>
+      <%= render 'layouts/footer' %>
+    <% else %>
+      <%= render 'devise/shared/footer' %>
+    <% end %>
+      
   </body>
 </html>
