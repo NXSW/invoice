@@ -5,8 +5,8 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @q = Member.ransack(params[:q])
-    # @bill_tos = BillTo.search(params[:q])
     @members = @q.result(distinct: true)
+    @bill_tos = BillTo.all
   end
 
   # GET /members/1
@@ -77,7 +77,7 @@ class MembersController < ApplicationController
         :name,
         :Company_number,
         :sex,
-        :workplace
+        :bill_to_id
       )
     end
 end
