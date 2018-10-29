@@ -20,12 +20,8 @@
     <div class="container mb-5" style="overflow:auto; height:1000px;">
       <%= yield %>
     </div>
-
-     <% if user_signed_in? %>
-      <%= render 'layouts/footer' %>
-    <% else %>
-      <%= render 'devise/shared/footer' %>
-    <% end %>
+    
+    <%= render 'layouts/footer' %>
 
   </body>
 </html>
