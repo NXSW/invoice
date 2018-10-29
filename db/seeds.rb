@@ -11,14 +11,14 @@ if Member.count == 0
     [
       { name: 'Zero' },
       { name: 'レバテック' },
-      { name: 'レバテック' }
+      { name: 'SES人材部' }
     ]
   )
   Member.create!(
     [
     	{ name: '王', sex: 0, work_place: '日立', cost: 300000, upper_standerd: 180, lower_standerd: 140, bill_to_id: 1 },
-    	{ name: '甲田', sex: 0, work_place: 'NEXT', cost: 20000, upper_standerd: 180, lower_standerd: 140, bill_to_id: 2 },
-    	{ name: '前森', sex: 0, work_place: 'NEXT', cost: 20000, upper_standerd: 180, lower_standerd: 140, bill_to_id: 3 }
+    	{ name: '甲田', sex: 0, work_place: 'NEXT', cost: 200000, upper_standerd: 180, lower_standerd: 140, bill_to_id: 2 },
+    	{ name: '前森', sex: 0, work_place: 'NEXT', cost: 200000, upper_standerd: 180, lower_standerd: 140, bill_to_id: 3 }
     ]
   )
 end
