@@ -8,8 +8,9 @@
     <%= f.search_field :name_cont, { class: 'form-control' } %>
   </div>
   <div class="input-group mb-3">
-    <%= f.label '現場', { class: 'input-group-text' } %>
-    <%= f.search_field :work_place_cont, { class: 'form-control' } %>
+    <%= f.label '請求先', { class: 'input-group-text' } %>
+    <%= f.select :bill_to_id, [["Zero","1"],["レバテック","2"]] ,class:"form-control" %>
+    <!-- <%= f.search_field :work_place_cont, { class: 'form-control' } %> -->
   </div>
   <%= f.submit '検索', { class: "btn btn-primary active" } %>
 <% end %>
@@ -19,7 +20,7 @@
     <tr>
       　<th></th>
         <th>氏名</th>
-        <th>現場</th>
+        <th>請求先</th>
         <th>単価(円)</th>
         <th></th>
         <th></th>
