@@ -1,1 +1,24 @@
 @import "bootstrap";
+
+body{
+  width: 100%;
+}
+
+header{
+  height: 100px;
+  margin-bottom: 40px;
+}
+
+nav{
+  width: 100%;
+}
+
+footer{
+  background-color: #343A40;
+  height: 80px;
+  margin-top: 40px;
+  small{
+    color: #fff;
+    padding: 10px 0 0 20px;
+  }
+}
