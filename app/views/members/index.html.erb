@@ -4,7 +4,7 @@
 
 <%= search_form_for @q do |f| %>
   <div class="input-group mb-3">
-    <span class="input-group-text" id="">名前</span>
+    <span class="input-group-text" id="">名　前</span>
     <%= f.search_field :name_cont, { class: 'form-control' } %>
   </div>
   <div class="input-group mb-3">
@@ -19,6 +19,7 @@
     <tr>
       　<th></th>
         <th>氏名</th>
+        <th>請求先</th>
         <th>単価(円)</th>
         <th></th>
         <th></th>
@@ -29,6 +30,7 @@
       <tr>
         <td><%= check_box_tag 'member_ids[]', member.id, true, {} %></td>
         <td><%= link_to member.name, member %></td>
+        <td><%= link_to member.bill_to.name, member %></td>
         <td><%= member.unit_price %></td>
         <td><%= link_to '編集', edit_member_path(member), { class: "btn btn-link" } %></td>
         <td><%= link_to '削除', member, method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "btn btn-link" %></td>
