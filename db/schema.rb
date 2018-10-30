@@ -10,30 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_094050) do
+ActiveRecord::Schema.define(version: 2018_10_30_051901) do
 
   create_table "bill_tos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "charge_people"
+    t.string "phone_num_1"
+    t.string "phone_num_2"
     t.string "email_1"
     t.string "email_2"
-    t.string "email_cc_1"
-    t.string "email_cc_2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "bills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "month"
+    t.integer "type", default: 0
     t.integer "pay_period"
     t.string "member_name"
     t.integer "member_sex"
     t.string "dev_content"
-    t.string "work_place"
-    t.integer "member_cost"
+    t.integer "unit_price"
     t.integer "work_time"
     t.integer "upper_standerd"
     t.integer "lower_standerd"
+    t.integer "cal_type"
     t.string "cal_rule"
     t.date "from"
     t.date "to"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_10_22_094050) do
     t.string "mail_1"
     t.string "address_1"
     t.string "postno_1"
-    t.string "course_1"
+    t.string "bank_account_1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,23 +61,39 @@ ActiveRecord::Schema.define(version: 2018_10_22_094050) do
     t.string "address_2"
     t.string "postno_1"
     t.string "postno_2"
-    t.string "course_1"
-    t.string "course_2"
+    t.string "bank_account_1"
+    t.string "bank_account_2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.date "birthday"
     t.integer "sex"
-    t.string "dev_content"
-    t.string "work_place"
-    t.integer "cost"
+    t.integer "company_id", default: 0
+    t.integer "bill_to_id", default: 0
+    t.integer "sales_staff_id", default: 0
     t.integer "payment_terms"
-    t.integer "bill_to_id"
-    t.integer "company_id"
+    t.integer "unit_price"
     t.integer "upper_standerd"
     t.integer "lower_standerd"
+    t.string "dev_content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bill_to_id"], name: "index_members_on_bill_to_id"
+    t.index ["company_id"], name: "index_members_on_company_id"
+    t.index ["sales_staff_id"], name: "index_members_on_sales_staff_id"
+    t.index ["sex"], name: "index_members_on_sex"
+  end
+
+  create_table "sales_staffs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "bill_to_id"
+    t.string "phone_num"
+    t.string "mail"
+    t.string "mail_cc_1"
+    t.string "mail_cc_2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
