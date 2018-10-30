@@ -9,9 +9,7 @@
   </div>
   <div class="input-group mb-3">
     <%= f.label '請求先', { class: 'input-group-text' } %>
-    <%= f.select :bill_to_id_eq, [["選択してください",""],["Zero","1"],["レバテック","2"]] ,class:"form-control" %>
-
-    <!-- <%= f.select :bill_to_id_eq,[["@bill_tos,1"],["@bill_tos","2"]] ,class:"form-control" %> -->
+    <%= f.collection_select(:bill_to_id_eq, @bill_tos, :id, :name, :include_blank => "選択してください") %>
   </div>
   <%= f.submit '検索', { class: "btn btn-primary active" } %>
 <% end %>
