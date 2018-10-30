@@ -1,31 +1,30 @@
 <div class="container" style="max-width:360px; border: solid 1px #CCCCCC; padding:40px 20px 40px 30px;">
- <h2>Sign up</h2>
+  <h2>Sign up</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
- <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
- <%= devise_error_messages! %>
+  <div class="field" style="margin-top:20px;">
+    <%= f.label :Email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email' , size: '30' %>
+  </div>
 
- <div class="field" style="margin-top:20px;">
-  <%= f.label :Email %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: 'email' , size: '30' %>
- </div>
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> character minimum )</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: 'new-password' , size: '30' %>
+  </div>
 
- <div class="field">
-  <%= f.label :password %>
-  <% if @minimum_password_length %>
-   <em>(<%= @minimum_password_length %> character minimum )</em>
-   <% end %><br />
-  <%= f.password_field :password, autocomplete: 'new-password' , size: '30' %>
- </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: 'new-password' , size: '30' %>
+  </div>
 
- <div class="field">
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: 'new-password' , size: '30' %>
- </div>
+  <div class="actions" style="margin:10px 0;">
+    <%= f.submit 'Sign up', { class:"btn btn-primary" } %>
+  </div>
+  <% end %>
 
- <div class="actions" style="margin:10px 0;">
-  <%= f.submit 'Sign up', { class:"btn btn-primary" } %>
- </div>
- <% end %>
-
- <%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
 </div>
