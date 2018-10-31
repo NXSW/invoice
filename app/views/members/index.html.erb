@@ -30,7 +30,7 @@
       <tr>
         <td><%= check_box_tag 'member_ids[]', member.id, true, {} %></td>
         <td><%= link_to member.name, member %></td>
-        <td><%= link_to member.bill_to.name %></td>
+        <td><%= member.bill_to.name %></td>
         <td><%= member.cost %></td>
         <td><%= button_to '編集', edit_member_path(member), { class: "btn btn-link" } %></td>
         <td><%= button_to '削除', member, method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "btn btn-link" %></td>
