@@ -7,6 +7,7 @@ class MembersController < ApplicationController
     @q = Member.ransack(params[:q])
     @members = @q.result(distinct: true)
     @members = Member.page(params[:page]).per(50)
+    @bill_tos = BillTo.all
   end
 
   # GET /members/1
@@ -77,7 +78,7 @@ class MembersController < ApplicationController
         :name,
         :company_id,
         :sex,
-        :work_place
+        :bill_to_id
       )
     end
 end
