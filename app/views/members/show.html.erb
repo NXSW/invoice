@@ -1,21 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>社員情報</h1>
+<h1 style="margin-bottom: 36px;">社員情報</h1>
 
-<table>
-<tbody>
+<ul class="list-group" style="width: 50%;">
+  <li class="list-group-item">社員番号: <%= @member.company_id %></li>
+  <li class="list-group-item">名前: <%= @member.name %></li>
+  <li class="list-group-item">誕生日: <%= @member.birthday %></li>
+  <li class="list-group-item">性別: <%= @member.sex %></li>
+  <li class="list-group-item">請求先: <%= @member.bill_to.name %></li>
+  <li class="list-group-item">営業担当: <%= @member.sales_staff.name %></li>
+  <li class="list-group-item">支払いサイト: <%= @member.payment_terms %></li>
+  <li class="list-group-item">単価: <%= @member.unit_price %></li>
+  <li class="list-group-item">上限時間: <%= @member.upper_standerd %></li>
+  <li class="list-group-item">下限時間: <%= @member.lower_standerd %></li>
+  <li class="list-group-item">開発内容: <%= @member.dev_content %></li>
+</ul>
 
-	<th>社員番号</th>
-	<th>名前</th>
-
-  <tr>
-  	<td><%= @member.company_id %></td>
-  	<td><%= @member.name %></td>
-  </tr>
-
-
-</tbody>
-</table>
-
+<div style="margin: 40px 0;">
 <%= link_to '編集', edit_member_path(@member) %> |
 <%= link_to '戻る', members_path %>
+</div>
