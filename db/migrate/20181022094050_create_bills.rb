@@ -2,15 +2,16 @@ class CreateBills < ActiveRecord::Migration[5.2]
   def change
     create_table :bills do |t|
       t.string :month
+      t.integer :type, default: 0
       t.integer :pay_period
       t.string  :member_name
       t.integer :member_sex
       t.string  :dev_content
-      t.string  :work_place
-      t.integer :member_cost
+      t.integer :unit_price
       t.integer :work_time
       t.integer :upper_standerd
       t.integer :lower_standerd
+      t.integer :cal_type
       t.string :cal_rule
       t.date :from
       t.date :to
@@ -22,9 +23,7 @@ class CreateBills < ActiveRecord::Migration[5.2]
       t.string :mail_1
       t.string :address_1
       t.string :postno_1
-      t.string :course_1
-      t.integer :upper_standerd
-      t.integer :lower_standerd
+      t.string :bank_account_1
       t.timestamps
     end
   end

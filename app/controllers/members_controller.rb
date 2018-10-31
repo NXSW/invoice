@@ -6,6 +6,7 @@ class MembersController < ApplicationController
   def index
     @q = Member.ransack(params[:q])
     @members = @q.result(distinct: true)
+    @members = Member.page(params[:page]).per(50)
     @bill_tos = BillTo.all
   end
 
@@ -75,7 +76,7 @@ class MembersController < ApplicationController
       params.fetch(:member, {})
       params.require(:member).permit(
         :name,
-        :Company_number,
+        :company_id,
         :sex,
         :bill_to_id
       )

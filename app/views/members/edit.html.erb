@@ -1,6 +1,9 @@
-<h1>Editing Member</h1>
+<h1 style="margin-bottom:36px;">社員編集</h1>
 
 <%= render 'form', member: @member %>
 
-<%= link_to 'Show', @member %> |
-<%= link_to 'Back', members_path %>
+
+<div style="margin:40px 0;">
+ <%= link_to '追加情報', @member %> |
+ <%= link_to '戻る', members_path %>
+</div>
