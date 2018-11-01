@@ -5,8 +5,7 @@ class BillTosController < ApplicationController
   # GET /bill_tos.json
   def index
     @q = BillTo.ransack(params[:q])
-    @bill_to = @q.result(distinct: true)
-    @bill_tos = BillTo.all
+    @bill_tos = @q.result(distinct: true).page(params[:page]).per(50)
   end
 
   # GET /bill_tos/1
@@ -30,7 +29,7 @@ class BillTosController < ApplicationController
 
     respond_to do |format|
       if @bill_to.save
-        format.html { redirect_to @bill_to, notice: 'Bill to was successfully created.' }
+        format.html { redirect_to @bill_to, notice: '追加しました' }
         format.json { render :show, status: :created, location: @bill_to }
       else
         format.html { render :new }
@@ -44,7 +43,7 @@ class BillTosController < ApplicationController
   def update
     respond_to do |format|
       if @bill_to.update(bill_to_params)
-        format.html { redirect_to @bill_to, notice: 'Bill to was successfully updated.' }
+        format.html { redirect_to @bill_to, notice: '更新しました' }
         format.json { render :show, status: :ok, location: @bill_to }
       else
         format.html { render :edit }
@@ -58,7 +57,7 @@ class BillTosController < ApplicationController
   def destroy
     @bill_to.destroy
     respond_to do |format|
-      format.html { redirect_to bill_tos_url, notice: 'Bill to was successfully destroyed.' }
+      format.html { redirect_to bill_tos_url, notice: '削除しました' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +70,11 @@ class BillTosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_to_params
-      params.require(:bill_to).permit(:name)
+      params.fetch(:bill_to, {})
+      params.require(:bill_to).permit(
+        :name,
+        :phone_num_1,
+        :email_1,
+      )
     end
 end

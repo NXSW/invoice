@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p class="lead"> 請求書一覧</p>
+<p class="lead"> 請求先一覧</p>
 
 <%= search_form_for @q do |f| %>
   <div class="input-group mb-3">
@@ -11,7 +11,7 @@
 <% end %>
 
 
-<table class="table">
+<table class="table" style="margin-top:20px;">
   <thead>
     <tr>
       <th></th>
@@ -23,7 +23,6 @@
     </tr>
   </thead>
   <tbody>
-
 
 
     <% @bill_tos.each do |bill_to| %>
@@ -41,4 +40,4 @@
 
 <br>
 
-<%= link_to '請求先追加', new_bill_to_path %>
+<%= link_to '請求先追加', new_bill_to_path, { class: "btn btn-primary active" } %>
