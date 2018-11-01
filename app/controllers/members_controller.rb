@@ -6,7 +6,7 @@ class MembersController < ApplicationController
   def index
     @q = Member.ransack(params[:q])
     @members = @q.result(distinct: true)
-    @memberslist = Member.page(params[:page]).per(50)
+    @members = @q.result.page(params[:page])
   end
 
   # GET /members/1
