@@ -9,7 +9,7 @@
   </div>
   <div class="input-group mb-3">
     <%= f.label '請求先', { class: 'input-group-text' } %>
-    <%= f.collection_select(:bill_to_id_eq, BillTo.all, :id, :name, :include_blank => '選択してください') %>
+    <%= f.collection_select(:bill_to_id_eq, @bill_tos, :id, :name, include_blank: '選択してください') %>
   </div>
   <%= f.submit '検索', { class: "btn btn-primary active" } %>
 <% end %>
@@ -17,7 +17,7 @@
 <table class="table" style="margin-bottom: 0;">
   <thead>
     <tr>
-    　<th></th>
+      <th></th>
       <th>氏名</th>
       <th>請求先</th>
       <th>単価(円)</th>
@@ -51,3 +51,6 @@
 </div>
 <%= link_to '社員追加', new_member_path, { class: "btn btn-primary active" } %>
 
+<div class="pagination" style="margin:16px 0 0 5px;">
+  <%= paginate @members %>
+</div>
