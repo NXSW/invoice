@@ -4,7 +4,10 @@ class BillTosController < ApplicationController
   # GET /bill_tos
   # GET /bill_tos.json
   def index
-    @bill_tos = BillTo.all
+    @q = BillTo.ransack(params[:q])
+    @bill_tos = @q.result(distinct: true)
+
+    @bill_tos = BillTo.order("created_at DESC").page(params[:page]).per(5)
   end
 
   # GET /bill_tos/1
