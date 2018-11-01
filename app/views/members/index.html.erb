@@ -14,7 +14,7 @@
   <%= f.submit '検索', { class: "btn btn-primary active" } %>
 <% end %>
 
-<table class="table">
+<table class="table" style="margin-bottom: 0;">
   <thead>
     <tr>
       <th></th>
@@ -27,7 +27,7 @@
   </thead>
   <tbody>
 
-  <div class="pagination" style="height:30px;">
+  <div class="pagination" style="height:56px;">
   <%= paginate @members %>
   </div>
 
@@ -45,8 +45,10 @@
   <tfoot>
   </tfoot>
 </table>
-<br>
 
+<div class="pagination" style="margin:5px 5px 10px;">
+  <%= paginate @members %>
+</div>
 <%= link_to '社員追加', new_member_path, { class: "btn btn-primary active" } %>
 
 <div class="pagination" style="margin:16px 0 0 5px;">
