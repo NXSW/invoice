@@ -5,7 +5,6 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @q = Member.ransack(params[:q])
-    @members = @q.result(distinct: true)
     @members = @q.result.page(params[:page])
     @bill_tos = BillTo.all
   end

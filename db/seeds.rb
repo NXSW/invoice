@@ -1,9 +1,21 @@
 if Member.count == 0
   BillTo.create!(
     [
-      { name: 'Zero' },
-      { name: 'レバテック' },
-      { name: 'SES人材部' }
+      {
+        name: 'Zero',
+        phone_num_1: '0311112222',
+        email_1: 'zero@gmail.com'
+      },
+      {
+        name: 'レバテック',
+        phone_num_1: '0344445555',
+        email_1: 'levtech@gmail.com'
+      },
+      {
+        name: 'SES人材部',
+        phone_num_1: '0366667777',
+        email_1: 'ses@gmail.com'
+      }
     ]
   )
   Company.create!(
