@@ -1,3 +1,22 @@
 // Place all the styles related to the Members controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login {
+  max-width:320px;
+  border: solid 1px #CCCCCC;
+  padding:40px 16px 40px 30px;
+
+  h2 {
+   text-align:center;
+ }
+}
+.signup {
+  max-width:360px;
+  border: solid 1px #CCCCCC;
+  padding:40px 20px 40px 30px;
+
+  h2 {
+   text-align:center;
+  }
+}
