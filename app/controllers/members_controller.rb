@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:show, :edit, :update, :destroy, :bill]
 
   # GET /members
   # GET /members.json
@@ -21,6 +21,9 @@ class MembersController < ApplicationController
 
   # GET /members/1/edit
   def edit
+  end
+
+  def bill
   end
 
   # POST /members

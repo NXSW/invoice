@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2018_10_30_051901) do
 
   create_table "bills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "month"
-    t.integer "type", default: 0
     t.integer "pay_period"
     t.string "member_name"
     t.integer "member_sex"

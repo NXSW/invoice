@@ -4,3 +4,7 @@
 # Mime::Type.register "text/richtext", :rtf
 
 Mime::Type.register "application/pdf", :pdf
+
+WickedPdf.config = {
+  exe_path: '/Users/wangningsi/.rbenv/shims/wkhtmltopdf'
+}

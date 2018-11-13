@@ -2,7 +2,6 @@ class CreateBills < ActiveRecord::Migration[5.2]
   def change
     create_table :bills do |t|
       t.string :month
-      t.integer :type, default: 0
       t.integer :pay_period
       t.string  :member_name
       t.integer :member_sex
