@@ -33,19 +33,11 @@ class MembersController < ApplicationController
 
   def bill
     @bill = Bill.new
+    @bill.member_name = @member.name
   end
 
   def pdf
-    @bill = Bill.new
     render 'bills/create'
-    # @bill = Bill.new(bill_params)
-    # respond_to do |format|
-    #   format.html
-    #   format.pdf do
-    #     render pdf: 'file_name', #pdfファイルの名前。これがないとエラーが出ます
-    #            layout: 'bill_pdf_reayouts.html' #レイアウトファイルの指定。views/layoutsが読まれます。
-    #   end
-    # end
   end
 
   # PATCH/PUT /members/1
