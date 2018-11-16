@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :members do
     member do
       get 'bill'
+      post 'pdf'
     end
   end
   root to: 'members#index'

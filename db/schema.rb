@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_051901) do
+ActiveRecord::Schema.define(version: 2018_11_14_052543) do
+
+  create_table "bill_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.integer "price"
+  end
 
   create_table "bill_tos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -32,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_051901) do
     t.integer "work_time"
     t.integer "upper_standerd"
     t.integer "lower_standerd"
-    t.integer "cal_type"
+    t.integer "bill_content_id"
     t.string "cal_rule"
     t.date "from"
     t.date "to"
@@ -62,6 +67,11 @@ ActiveRecord::Schema.define(version: 2018_10_30_051901) do
     t.string "postno_2"
     t.string "bank_account_1"
     t.string "bank_account_2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "corporation_bill_contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

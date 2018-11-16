@@ -1,16 +1,12 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy, :bill]
 
-  # GET /members
-  # GET /members.json
   def index
     @q = Member.ransack(params[:q])
     @members = @q.result.page(params[:page])
     @bill_tos = BillTo.all
   end
 
-  # GET /members/1
-  # GET /members/1.json
   def show
   end
 
@@ -23,23 +19,33 @@ class MembersController < ApplicationController
   def edit
   end
 
-  def bill
-  end
-
-  # POST /members
-  # POST /members.json
   def create
     @member = Member.new(member_params)
 
     respond_to do |format|
       if @member.save
         format.html { redirect_to @member, notice: '追加しました' }
-        format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }
-        format.json { render json: @member.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def bill
+    @bill = Bill.new
+  end
+
+  def pdf
+    @bill = Bill.new
+    render 'bills/create'
+    # @bill = Bill.new(bill_params)
+    # respond_to do |format|
+    #   format.html
+    #   format.pdf do
+    #     render pdf: 'file_name', #pdfファイルの名前。これがないとエラーが出ます
+    #            layout: 'bill_pdf_reayouts.html' #レイアウトファイルの指定。views/layoutsが読まれます。
+    #   end
+    # end
   end
 
   # PATCH/PUT /members/1

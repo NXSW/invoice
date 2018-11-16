@@ -10,7 +10,7 @@
   <li class="list-group-item">請求先: <%= @member.bill_to.name %></li>
   <li class="list-group-item">営業担当: <%= @member.sales_staff.name %></li>
   <li class="list-group-item">支払いサイト: <%= @member.payment_terms %></li>
-  <li class="list-group-item">単価: <%= @member.unit_price %></li>
+  <li class="list-group-item">単価: <%= @member.unit_price&.to_s(:delimited) %>円</li>
   <li class="list-group-item">上限時間: <%= @member.upper_standerd %></li>
   <li class="list-group-item">下限時間: <%= @member.lower_standerd %></li>
   <li class="list-group-item">開発内容: <%= @member.dev_content %></li>

@@ -1,1 +1,22 @@
-sssssssssssss
+<%= form_with model: @bill, method: :post do |form| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+      <ul>
+      <% @bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <ul class="list-group" style="width: 50%;">
+    <li class="list-group-item">稼働月: <%= form.text_field :month %></li>
+    <li class="list-group-item">名　前: <%= form.text_field :member_name %></li>
+    <li class="list-group-item">請求先: <%= form.text_field :bill_to_name %></li>
+  </ul>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
