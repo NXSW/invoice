@@ -1,5 +1,5 @@
 class BillsController < ApplicationController
-  before_action :set_bill, only: [:show, :edit, :update, :destroy]
+  before_action :set_bill, only: [:show, :edit, :update, :destroy, :pdf]
 
   # GET /bills
   # GET /bills.json
@@ -10,6 +10,13 @@ class BillsController < ApplicationController
   # GET /bills/1
   # GET /bills/1.json
   def show
+    respond_to do |format|
+      format.html { render 'show' }
+      format.pdf do
+        render pdf: 'file_name',
+               layout: 'bill_pdf_layouts.html' #レイアウトファイルの指定。views/layoutsが読まれます。
+      end
+    end
   end
 
   # GET /bills/new
@@ -29,10 +36,8 @@ class BillsController < ApplicationController
     respond_to do |format|
       if @bill.save
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
-        format.json { render :show, status: :created, location: @bill }
       else
         format.html { render :new }
-        format.json { render json: @bill.errors, status: :unprocessable_entity }
       end
     end
   end
