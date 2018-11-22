@@ -2,6 +2,7 @@ class CreateMembers < ActiveRecord::Migration[5.2]
   def change
     create_table :members do |t|
       t.string :name
+      t.string :member_no
       t.date :birthday
       t.integer :sex, index: true
       t.integer :company_id, default: 0, index: true

@@ -14,6 +14,7 @@ class CreateBills < ActiveRecord::Migration[5.2]
       t.string :cal_rule
       t.date :from
       t.date :to
+      t.integer :term
       t.integer :payment_terms
       t.string :bill_to_name
       t.string :bill_to_charge_people

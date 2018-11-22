@@ -8,9 +8,6 @@ class MembersController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.pdf { render pdf: 'test', layout: 'bill_pdf_layouts.html' }
-    end
   end
 
   # GET /members/new
@@ -36,7 +33,7 @@ class MembersController < ApplicationController
 
   def bill
     @bill = Bill.new
-    @bill.member_name = @member.name
+    @bill.bill_to_name = @member.bill_to.name
   end
 
   def pdf

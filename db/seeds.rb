@@ -48,6 +48,7 @@ if Member.count == 0
     [
     	{
         name: '王',
+        member_no: '1',
         sex: 0,
         unit_price: 300000,
         upper_standerd: 180,
@@ -58,6 +59,7 @@ if Member.count == 0
       },
       {
         name: '甲田',
+        member_no: '2',
         sex: 1,
         unit_price: 400000,
         upper_standerd: 180,
@@ -68,6 +70,7 @@ if Member.count == 0
       },
       {
         name: '前森',
+        member_no: '3',
         sex: 0,
         unit_price: 400000,
         upper_standerd: 200,

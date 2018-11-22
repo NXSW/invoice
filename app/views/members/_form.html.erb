@@ -2,7 +2,6 @@
   <% if member.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
-
       <ul>
       <% member.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,9 +9,46 @@
       </ul>
     </div>
   <% end %>
-  <div><%= form.text_field :company_id %></div>
-  <div><%= form.text_field :name %></div>
-  <div><%= form.text_field :sex %></div>
+
+  <ul class="list-group" style="width: 50%;">
+    <li class="list-group-item">
+      所属会社: <%= f.collection_select(:bill_to_id, @member.company, :id, :name, include_blank: '選択してください') %>
+    </li>
+    <li class="list-group-item">
+      社員番号: <%= form.text_field :member_no %>
+    </li>
+    <li class="list-group-item">
+      名前: <%= form.text_field :name %>
+    </li>
+    <li class="list-group-item">
+      誕生日: <%= form.text_field :birthday %>
+    </li>
+    <li class="list-group-item">
+      性別: <%= form.text_field :sex %>
+    </li>
+    <li class="list-group-item">
+      請求先: <%= form.text_field :bill_to_id %>
+    </li>
+    <li class="list-group-item">
+      営業担当: <%= form.text_field :sales_staff_id %>
+    </li>
+    <li class="list-group-item">
+      支払いサイト: <%= form.text_field :payment_terms %>
+    </li>
+    <li class="list-group-item">
+      単価: <%= form.text_field :unit_price %>
+    </li>
+    <li class="list-group-item">
+      上限時間: <%= form.text_field :upper_standerd %>
+    </li>
+    <li class="list-group-item">
+      下限時間: <%= form.text_field :lower_standerd %>
+    </li>
+    li class="list-group-item">
+      開発内容: <%= form.text_field :dev_content %>
+    </li>
+  </ul>
+
 
   <div class="actions" style="margin-top:10px;">
     <%= form.submit '追加' , { class:"btn btn-primary" } %>

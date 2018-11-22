@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_052543) do
 
   create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.string "member_no"
     t.date "birthday"
     t.integer "sex"
     t.integer "company_id", default: 0
