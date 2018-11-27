@@ -16,30 +16,26 @@
   <%= hidden_field :create, :type, { value: 'create_pdf' } %>
   <ul class="list-group input-group" style="width: 50%;">
     <li class="list-group-item">
-      所属会社: <%= form.text_field :company_name, readonly: true, value: @member.company.name %>
+      請求先: <%= @member.bill_to.name %>
+    </li>
+    <li class="list-group-item">
+      稼働者: <%= @member.name %>
     </li>
     <li class="list-group-item">
       稼働月: <%= select_month(form) %>
     </li>
-    <li class="list-group-item">
-      名　前: <%= form.text_field :member_name, readonly: true, value: @member.name %>
+    <li class="list-group-item input-group mb3">
+      作業期間: <%= last_month_beginning_date(form) %> 〜 <%= last_month_end_date(form) %>
     </li>
     <li class="list-group-item input-group mb3">
-      請求先: <%= form.text_field :bill_to_name, readonly: true, value: @member.bill_to.name %>
+      超過（基準時間　<%= @member.upper_standerd %>）
     </li>
     <li class="list-group-item input-group mb3">
-      作業期間: <%= '' %>
-    </li>
-    <li class="list-group-item input-group mb3">
-      超過（基準時間　）
-    </li>
-    <li class="list-group-item input-group mb3">
-      控除（基準時間　）
+      控除（基準時間　<%= @member.lower_standerd %>）
     </li>
     <li class="list-group-item input-group mb3">
       残業 / 控除 <%= form.text_field :bill_to_name, readonly: true %>
     </li>
-    <%= form.date_field "start_up", value:  %>
   </ul>
 
 
