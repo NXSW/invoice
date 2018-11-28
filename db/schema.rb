@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_052543) do
     t.string "cal_rule"
     t.date "from"
     t.date "to"
+    t.integer "term"
     t.integer "payment_terms"
     t.string "bill_to_name"
     t.string "bill_to_charge_people"
