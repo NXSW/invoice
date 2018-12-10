@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_052543) do
     t.integer "upper_standerd"
     t.integer "lower_standerd"
     t.string "dev_content"
+    t.string "task"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bill_to_id"], name: "index_members_on_bill_to_id"

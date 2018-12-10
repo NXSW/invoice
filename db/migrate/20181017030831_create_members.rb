@@ -13,6 +13,7 @@ class CreateMembers < ActiveRecord::Migration[5.2]
       t.integer :upper_standerd
       t.integer :lower_standerd
       t.string  :dev_content
+      t.string  :task
       t.timestamps
     end
   end

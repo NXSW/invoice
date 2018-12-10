@@ -12,7 +12,7 @@
 
   <ul class="list-group" style="width: 50%;">
     <li class="list-group-item">
-      所属会社: <%= f.collection_select(:bill_to_id, @member.company, :id, :name, include_blank: '選択してください') %>
+      所属会社: <%= form.collection_select(:bill_to_id, Company.all, :id, :name, include_blank: '選択してください') %>
     </li>
     <li class="list-group-item">
       社員番号: <%= form.text_field :member_no %>
@@ -44,7 +44,7 @@
     <li class="list-group-item">
       下限時間: <%= form.text_field :lower_standerd %>
     </li>
-    li class="list-group-item">
+    <li class="list-group-item">
       開発内容: <%= form.text_field :dev_content %>
     </li>
   </ul>

@@ -16,6 +16,9 @@
   <%= hidden_field :create, :type, { value: 'create_pdf' } %>
   <ul class="list-group input-group" style="width: 50%;">
     <li class="list-group-item">
+      会社: <%= @member.company.name %>
+    </li>
+    <li class="list-group-item">
       請求先: <%= @member.bill_to.name %>
     </li>
     <li class="list-group-item">
@@ -23,6 +26,12 @@
     </li>
     <li class="list-group-item">
       稼働月: <%= select_month(form) %>
+    </li>
+    <li class="list-group-item">
+      件名: <%= @member.dev_content %>
+    </li>
+    <li class="list-group-item">
+      業務名: <%= @member.dev_content %>
     </li>
     <li class="list-group-item input-group mb3">
       作業期間: <%= last_month_beginning_date(form) %> 〜 <%= last_month_end_date(form) %>
