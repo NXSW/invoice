@@ -31,10 +31,13 @@
       件名: <%= @member.dev_content %>
     </li>
     <li class="list-group-item">
-      業務名: <%= @member.dev_content %>
+      業務名: <%= @member.task %>
     </li>
     <li class="list-group-item input-group mb3">
       作業期間: <%= last_month_beginning_date(form) %> 〜 <%= last_month_end_date(form) %>
+    </li>
+    <li class="list-group-item input-group mb3">
+      作業時間: <%= form.text_field :term %>
     </li>
     <li class="list-group-item input-group mb3">
       超過（基準時間　<%= @member.upper_standerd %>）
@@ -44,6 +47,7 @@
     </li>
     <li class="list-group-item input-group mb3">
       残業 / 控除 <%= form.text_field :bill_to_name, readonly: true %>
+      <%= link_to '計算', 'javascript:void(0);', { onclick: "cal()", class: "btn btn-primary active" } %>
     </li>
   </ul>
 

@@ -14,36 +14,37 @@
   <%= f.submit '検索', { class: "btn btn-primary active" } %>
   <%= link_to '社員追加', new_member_path, { class: "btn btn-primary active" } %>
 <% end %>
-
-<table class="table" style="margin-bottom: 0;">
-  <thead>
-    <tr>
-      <th>氏名</th>
-      <th>請求先</th>
-      <th>単価(円)</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-
-  <div class="pagination" style="height:56px; margin-top: 20px;">
-  <%= paginate @members %>
-  </div>
-
-    <% @members.each do |member| %>
+<div style="height: 250px; overflow: auto;">
+  <table class="table" style="margin-bottom: 0;">
+    <thead>
       <tr>
-        <td><%= link_to member.name, member %></td>
-        <td><%= member.bill_to.name %></td>
-        <td><%= member.unit_price&.to_s(:delimited) %></td>
-        <td><%= link_to '編集', edit_member_path(member) %></td>
-        <td><%= link_to '請求書作成', bill_member_path(member) %></td>
+        <th>氏名</th>
+        <th>請求先</th>
+        <th>単価(円)</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-  <tfoot>
-  </tfoot>
-</table>
+    </thead>
+
+    <tbody>
+    <div class="pagination" style="height:56px; margin-top: 20px;">
+    <%= paginate @members %>
+    </div>
+
+      <% @members.each do |member| %>
+        <tr>
+          <td><%= link_to member.name, member %></td>
+          <td><%= member.bill_to.name %></td>
+          <td><%= member.unit_price&.to_s(:delimited) %></td>
+          <td><%= link_to '編集', edit_member_path(member) %></td>
+          <td><%= link_to '請求書作成', bill_member_path(member) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+</div>
 
 <div class="pagination" style="margin:5px 5px 10px;">
   <%= paginate @members %>

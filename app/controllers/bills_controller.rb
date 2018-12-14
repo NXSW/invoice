@@ -14,7 +14,7 @@ class BillsController < ApplicationController
       format.html { render 'show' }
       format.pdf do
         render pdf: 'file_name',
-               layout: 'bill_pdf_layouts.html' #レイアウトファイルの指定。views/layoutsが読まれます。
+               layout: 'bill_pdf_layouts.html'
       end
     end
   end
@@ -74,6 +74,30 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:month)
+      params.require(:bill).permit(
+        :month,
+        :pay_period,
+        :member_name,
+        :member_sex,
+        :dev_content,
+        :unit_price,
+        :work_time,
+        :upper_standerd,
+        :lower_standerd,
+        :bill_content_id,
+        :cal_rule,
+        :from,
+        :to,
+        :term,
+        :payment_terms,
+        :bill_to_name,
+        :bill_to_charge_people,
+        :company_name,
+        :tel_1,
+        :mail_1,
+        :address_1,
+        :postno_1,
+        :bank_account_1
+      )
     end
 end

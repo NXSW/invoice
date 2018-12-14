@@ -34,6 +34,8 @@ class MembersController < ApplicationController
   def bill
     @bill = Bill.new
     @bill.bill_to_name = @member.bill_to.name
+    @bill.company_name = @member.company.name
+    @bill.member_name = @member.name
   end
 
   def pdf
@@ -76,9 +78,18 @@ class MembersController < ApplicationController
       params.fetch(:member, {})
       params.require(:member).permit(
         :name,
-        :company_id,
+        :member_no,
+        :birthday,
         :sex,
-        :bill_to_id
+        :company_id,
+        :bill_to_id,
+        :sales_staff_id,
+        :payment_terms,
+        :unit_price,
+        :upper_standerd,
+        :lower_standerd,
+        :dev_content,
+        :task
       )
     end
 end
