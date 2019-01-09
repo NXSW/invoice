@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_052543) do
     t.integer "upper_standerd"
     t.integer "lower_standerd"
     t.integer "bill_content_id"
+    t.integer "traffic_price"
     t.string "cal_rule"
     t.date "from"
     t.date "to"
