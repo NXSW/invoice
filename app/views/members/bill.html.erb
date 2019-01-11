@@ -1,15 +1,10 @@
-<%= javascript_include_tag 'bills.js' %>
 <%= form_with model: @bill, method: :post do |form| %>
   <% if @bill.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= pluralize(@bill.errors.count, "error") %>
-        prohibited this bill from being saved:
-      </h2>
       <ul>
-      <% @bill.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @bill.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -47,7 +42,7 @@
     </li>
     <li class="list-group-item input-group mb3">
       残業 / 控除 <%= form.text_field :bill_to_name, readonly: true %>
-      <%= link_to '計算', 'javascript:void(0);', { onclick: "calt()", class: "btn btn-primary active" } %>
+      <%= link_to '計算', 'javascript:void(0);', { onclick: "cal()", class: "btn btn-primary active" } %>
     </li>
   </ul>
 
