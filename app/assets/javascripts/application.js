@@ -13,3 +13,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+function cal() {
+  alert('test');
+}

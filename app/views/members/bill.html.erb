@@ -1,3 +1,4 @@
+<%= javascript_include_tag 'bills.js' %>
 <%= form_with model: @bill, method: :post do |form| %>
   <% if @bill.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +13,6 @@
       </ul>
     </div>
   <% end %>
-
   <%= hidden_field :create, :type, { value: 'create_pdf' } %>
   <ul class="list-group input-group" style="width: 50%;">
     <li class="list-group-item">
@@ -37,7 +37,7 @@
       作業期間: <%= last_month_beginning_date(form) %> 〜 <%= last_month_end_date(form) %>
     </li>
     <li class="list-group-item input-group mb3">
-      作業時間: <%= form.text_field :term %>
+      作業時間: <%= form.number_field :term %>
     </li>
     <li class="list-group-item input-group mb3">
       超過（基準時間　<%= @member.upper_standerd %>）
@@ -47,10 +47,9 @@
     </li>
     <li class="list-group-item input-group mb3">
       残業 / 控除 <%= form.text_field :bill_to_name, readonly: true %>
-      <%= link_to '計算', 'javascript:void(0);', { onclick: "cal()", class: "btn btn-primary active" } %>
+      <%= link_to '計算', 'javascript:void(0);', { onclick: "calt()", class: "btn btn-primary active" } %>
     </li>
   </ul>
-
 
   <div class="actions">
     <%= form.submit %>
