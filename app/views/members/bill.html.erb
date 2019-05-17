@@ -32,21 +32,34 @@
       作業期間: <%= last_month_beginning_date(form) %> 〜 <%= last_month_end_date(form) %>
     </li>
     <li class="list-group-item input-group mb3">
-      作業時間: <%= form.number_field :term %>
+      人月: <%= form.number_field :term, step: "0.01", value: 1 %>
+    </li>
+    <li class="list-group-item input-group mb3">
+      単価: <%= number_to_currency(@member.unit_price, :unit => "￥", :precision => 0) %>円
+    </li>
+    <li class="list-group-item input-group mb3">
+      作業時間: <%= form.number_field :term, step: "0.01" %>
     </li>
     <li class="list-group-item input-group mb3">
       超過（基準時間　<%= @member.upper_standerd %>）
+      <%= form.hidden_field :upper_standerd, value: @member.upper_standerd %>
     </li>
     <li class="list-group-item input-group mb3">
       控除（基準時間　<%= @member.lower_standerd %>）
+      <%= form.hidden_field :lower_standerd, value: @member.lower_standerd %>
     </li>
     <li class="list-group-item input-group mb3">
       残業 / 控除 <%= form.text_field :bill_to_name, readonly: true %>
       <%= link_to '計算', 'javascript:void(0);', { onclick: "cal()", class: "btn btn-primary active" } %>
     </li>
+
+    <li class="list-group-item input-group mb3">
+      合計 <%= form.text_field :, readonly: true %>
+      <%= link_to '計算', 'javascript:void(0);', { onclick: "cal()", class: "btn btn-primary active" } %>
+    </li>
   </ul>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit('請求書作成') %>
   </div>
 <% end %>

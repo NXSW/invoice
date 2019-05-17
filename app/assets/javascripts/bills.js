@@ -1,3 +1,2 @@
 function cal() {
-  alert('bills');
 }

@@ -31,6 +31,7 @@ class BillsController < ApplicationController
   # POST /bills
   # POST /bills.json
   def create
+    p bill_params
     @bill = Bill.new(bill_params)
 
     respond_to do |format|
