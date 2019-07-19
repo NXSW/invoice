@@ -9,7 +9,7 @@
     </div>
   <% end %>
   <%= hidden_field :create, :type, { value: 'create_pdf' } %>
-  <ul class="list-group input-group" style="width: 50%;">
+  <ul class="list-group input-group" style="width: 100%;">
     <li class="list-group-item">
       会社: <%= @member.company.name %>
     </li>
@@ -42,7 +42,8 @@
     </li>
     <li class="list-group-item input-group mb3">
       超過（基準時間　<%= @member.upper_standerd %>）
-      <%= form.hidden_field :upper_standerd, value: @member.upper_standerd %>
+       時間単価: <%= @member.upper_standerd %>
+       時間単価: <%= @member.upper_standerd %>
     </li>
     <li class="list-group-item input-group mb3">
       控除（基準時間　<%= @member.lower_standerd %>）
@@ -50,11 +51,18 @@
     </li>
     <li class="list-group-item input-group mb3">
       残業 / 控除 <%= form.text_field :bill_to_name, readonly: true %>
-      <%= link_to '計算', 'javascript:void(0);', { onclick: "cal()", class: "btn btn-primary active" } %>
     </li>
-
     <li class="list-group-item input-group mb3">
-      合計 <%= form.text_field :, readonly: true %>
+      小計 <%= form.text_field :total, readonly: true %>
+    </li>
+    <li class="list-group-item input-group mb3">
+      税額 <%= form.text_field :total, readonly: true %>
+    </li>
+    <li class="list-group-item input-group mb3">
+      費用請求 <%= form.text_field :total, readonly: false %>
+    </li>
+    <li class="list-group-item input-group mb3">
+      合計 <%= form.text_field :total, readonly: true %>
       <%= link_to '計算', 'javascript:void(0);', { onclick: "cal()", class: "btn btn-primary active" } %>
     </li>
   </ul>
